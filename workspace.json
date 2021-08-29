@@ -157,6 +157,12 @@
             "jestConfig": "apps/ecomm/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "firebase": {
+          "executor": "@nxtend/firebase:firebase",
+          "options": {
+            "cmd": "--help"
+          }
         }
       }
     },

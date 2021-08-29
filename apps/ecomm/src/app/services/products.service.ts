@@ -20,14 +20,16 @@ export interface Product {
 })
 export class ProductsService {
 
+  private hostURL = 'https://backend-ansr.herokuapp.com'; 
+
   constructor(private http: HttpClient) { }
 
   public getProducts(searchText?: string, sort?: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`/api/products?sort=${sort}&search=${searchText}`);
+    return this.http.get<Product[]>(`${this.hostURL}/api/products?sort=${sort}&search=${searchText}`);
   }
 
   public getProductById(uniq_id: string): Observable<Product[]> {
-    return this.http.get<Product[]>(`/api/products/${uniq_id}`);
+    return this.http.get<Product[]>(`${this.hostURL}/api/products/${uniq_id}`);
   }
 
 }

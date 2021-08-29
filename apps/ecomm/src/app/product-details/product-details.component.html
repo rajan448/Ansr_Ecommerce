@@ -1,1 +1,33 @@
-{{product$ | async | json}}
+<div class="back-link">
+    <a routerLink="/dashboard">Back to Dashboard</a>
+</div>
+<div class="details-container" *ngIf="(product$|async) as product" fxLayout="row">
+    <!-- {{product | json}} -->
+    <div class="images">
+        <div *ngFor="let image of product.image; let i=index">
+            <img height="200" width="200" src="{{image}}" alt="Image">
+        </div>
+    </div>
+    
+    <div class="details" fxLayout="column" fxLayoutGap='10px'>
+        <h2 class="name">
+            {{product.product_name}}
+        </h2>
+
+        <div class="desc">
+            <h3>Description:</h3>
+            {{product.description}}
+        </div>
+
+        <div class="rating">
+            Product rating: {{product.product_rating}} <br>
+            Overall rating: {{product.overall_rating}}
+        </div>
+
+        <div class="price">
+            Retail Price: ₹{{product.retail_price || 'NA'}} <br>
+            Discounted Price: ₹{{product.discounted_price || 'NA'}}
+        </div>
+    </div>
+
+</div>

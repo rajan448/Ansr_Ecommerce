@@ -26,8 +26,8 @@ export class ProductsService {
     return this.http.get<Product[]>(`/api/products?sort=${sort}&search=${searchText}`);
   }
 
-  public getProductById(uniq_id: string): Observable<Product> {
-    return this.http.get<Product>(`/api/products/${uniq_id}`);
+  public getProductById(uniq_id: string): Observable<Product[]> {
+    return this.http.get<Product[]>(`/api/products/${uniq_id}`);
   }
 
 }

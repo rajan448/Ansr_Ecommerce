@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Product, ProductsService } from '../services/products.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.uniq_id = this.activatedRoute.snapshot.params.id;
-    this.product$ = this.productService.getProductById(this.uniq_id);
+    this.product$ = this.productService.getProductById(this.uniq_id).pipe(map(res => res[0]));
   }
 
 }

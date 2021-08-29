@@ -1,0 +1,3 @@
+use('ANSR_Ecommerce');
+
+db.products.find({uniq_id: '8542703ca9e6ebdf6d742638dfb1f2ca'});

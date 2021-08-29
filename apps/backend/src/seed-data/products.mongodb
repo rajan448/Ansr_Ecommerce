@@ -1,0 +1,18 @@
+// MongoDB Playground
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+const database = 'ANSR_Ecommerce';
+const collection = 'products';
+const URL = 'https://s3-ap-southeast-1.amazonaws.com/he-public-data/productdf38641.json';
+const fetch = require('node-fetch');
+
+// Create a new database.
+use(database);
+
+db[collection].drop();
+
+// Create a new collection.
+db.createCollection(collection);
+
+
+fetch(URL).then(res => res.json()).then(data => db[collection].insertMany(data));

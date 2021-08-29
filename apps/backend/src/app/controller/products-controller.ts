@@ -9,6 +9,8 @@ export const getProducts = (req: Request, res: Response) => {
     const sortOrder = req.query.sort;
     const sortBy = sortOrder === '1' ? 1 : -1;
 
+    const searchText = req.query.search === 'undefined' ? '' : req.query.search;
+
     ProductModel.find({})
         .sort({ 'discounted_price': sortBy })
         .exec(function (err, products) {

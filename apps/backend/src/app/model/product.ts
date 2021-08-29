@@ -20,7 +20,8 @@ export const productSchema = new Schema<Product>({
     },
     product_name: {
         type: String,
-        required: true
+        required: true,
+        index: true
     },
     brand: String,
     description: String,

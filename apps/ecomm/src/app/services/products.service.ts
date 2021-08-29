@@ -22,8 +22,8 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  public getProducts(sort?: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`/api/products?sort=${sort}`);
+  public getProducts(searchText?: string, sort?: number): Observable<Product[]> {
+    return this.http.get<Product[]>(`/api/products?sort=${sort}&search=${searchText}`);
   }
 
   public getProductById(uniq_id: string): Observable<Product> {

@@ -3,12 +3,20 @@
   <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
     <h1 class="mat-h1">Products</h1>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Sort By</mat-label>
-      <mat-select>
-        <mat-option (onSelectionChange)="sortingChanged($event)" *ngFor="let state of sortingOptions" [value]="state.value">{{state.name}}</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div fxLayout="row" fxLayoutGap="20px">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input [formControl]="formControl" [autocomplete]="'off'" matInput>
+      </mat-form-field>
+    
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Sort By</mat-label>
+        <mat-select>
+          <mat-option (onSelectionChange)="sortingChanged($event)" *ngFor="let state of sortingOptions" [value]="state.value">{{state.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
 
   <mat-divider></mat-divider>

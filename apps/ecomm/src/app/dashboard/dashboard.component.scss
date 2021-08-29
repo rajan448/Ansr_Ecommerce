@@ -9,6 +9,14 @@
   right: 15px;
   bottom: 15px;
 }
+.retail {
+  text-decoration: line-through;
+}
+
+.product-name {
+  cursor: pointer;
+  color: rgb(16, 16, 117);
+}
 
 .more-button {
   position: absolute;

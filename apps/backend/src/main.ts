@@ -1,13 +1,15 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const cors = require('cors');
 
 import * as express from 'express';
-import * as cors from 'cors';
 import * as mongoose from 'mongoose';
 import routes from './app/routes/app-routes';
-const app = express();
-app.use(cors());
 
+const app = express();
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

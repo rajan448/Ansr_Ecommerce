@@ -1,22 +1,27 @@
 <div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+  <h1 class="mat-h1">Products</h1>
+  <mat-grid-list cols="4" rowHeight="380px">
+    <mat-grid-tile *ngFor="let product of products$ | async" [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{card.title}}
+            <span class="product-name" (click)="nameClicked(product.uniq_id)">{{product.product_name}}</span>
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
+              <button mat-menu-item>Add to Cart</button>
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+          <div class="image">
+            <img height="200" width="150" src="{{product.image[0]}}" alt="Image">
+
+            <div class="prices">
+                Price: ₹<span class="retail">{{product.retail_price || 'NA'}} </span><br> ₹{{product.discounted_price || 'NA'}}
+            </div>
+          </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

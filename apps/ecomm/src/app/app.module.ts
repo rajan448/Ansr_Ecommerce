@@ -11,16 +11,27 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent],
+  declarations: [AppComponent, DashboardComponent, ProductDetailsComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: '/dashboard'
+      },
+      {
         path: 'dashboard',
         component: DashboardComponent
+      }, {
+        path: 'products/:id',
+        component: ProductDetailsComponent
       }
     ], { initialNavigation: 'enabledBlocking' }),
     BrowserAnimationsModule,
@@ -30,6 +41,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatIconModule,
     MatButtonModule,
     LayoutModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

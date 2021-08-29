@@ -127,7 +127,8 @@
               "browserTarget": "ecomm:build:production"
             },
             "development": {
-              "browserTarget": "ecomm:build:development"
+              "browserTarget": "ecomm:build:development",
+              "proxyConfig": "apps/ecomm/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

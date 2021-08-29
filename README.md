@@ -21,4 +21,4 @@
 
 ## Hosting Urls:
 
-Frontend: http://localhost:4200
+Frontend: https://ansrecommerce.web.app/
